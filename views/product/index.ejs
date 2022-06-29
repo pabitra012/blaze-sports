@@ -1,0 +1,127 @@
+<%- include ('components/head.ejs') %>
+
+    <body>
+        <%- include ('components/header.ejs') %>
+            <!-----------------------------------Navigation Bar Started--------------------------------------->
+            <%- include ('components/navbar.ejs') %>
+
+                <!--------------------------------------Products Started------------------------------------------->
+
+                <section class="products" id="products">
+
+                    <h1 class="heading"> latest <span>products</span> </h1>
+
+                    <div class="box-container">
+
+                        <% if (products.length> 0) { %>
+
+
+                            <% products.forEach(product=> { %>
+                                <div class="box" key='<%= product.id %>'>
+                                    <div class="icons">
+                                        <a href="#" class="fas fa-heart"></a>
+                                        <a href="#" class="fas fa-share"></a>
+                                        <a href="/product/backpack/<%= product.id %>" class="fas fa-eye"></a>
+                                    </div>
+
+                                    <a href="/product/<%= product.productType %>/<%= product.id %>">
+                                        <img src="<%= product.imageUrl %>" alt="backpack">
+                                    </a>
+
+                                    <div class="content">
+                                        <h3><%= product.title %></h3>
+                                        <div class="price">
+                                            Rs.<%= product.price %>/-<span>
+                                                    Rs.<%= product.discountPrice %>/-
+                                                </span>
+                                        </div>
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <a href="#" class="btn">add to cart</a>
+                                    </div>
+                                </div>
+                                <% }) %>
+
+
+                                    <% } else { %>
+                                        <h2>No products are there!</h2>
+                                        <% } %>
+                    </div>
+
+                </section>
+
+                <!-- products section ends -->
+
+                <!-- featured section starts  -->
+
+                <section class="featured" id="featured">
+
+                    <h1 class="heading"> <span>featured</span> products </h1>
+                    <!------------------------------------  FeaturedProducts-1  ---------------------------------->
+                    <% if (FeaturedProducts.length> 0) { %>
+
+
+                        <% FeaturedProducts.forEach(FeaturedProduct=> { %>
+                            <div class="row" key="<%= FeaturedProduct.id %>">
+                                <div class="image-container">
+                                    <div class="small-image">
+                                        <img src="<%= FeaturedProduct.imageUrlSideOne %> " class="featured-image-1" alt="">
+                                        <img src="<%= FeaturedProduct.imageUrlSideTwo %>" class="featured-image-1" alt="">
+                                        <img src="<%= FeaturedProduct.imageUrlSideThree %>" class="featured-image-1" alt="">
+                                        <img src="<%= FeaturedProduct.imageUrlSideFour %>" class="featured-image-1" alt="">
+                                    </div>
+                                    <div class="big-image">
+                                        <img src="<%= FeaturedProduct.imageUrlMain %>" class="big-image-1" alt="">
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <h3><%= FeaturedProduct.title %></h3>
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <p><%= FeaturedProduct.description %></p>
+                                    <div class="price">Rs.<%= FeaturedProduct.price %>/- <span>Rs.<%= FeaturedProduct.discountPrice %>/-</span></div>
+                                    <a href="#" class="btn">add to cart</a>
+                                </div>
+                            </div>
+                    <% }) %>
+            
+            
+                    <% } else { %>
+                        <h3></h3>
+                    <% } %>
+                    
+
+                </section>
+
+                <!-- featured section ends -->
+
+                <!------------------------------------- service section starts ------------------------------------>
+
+                <%- include ('components/service.ejs') %>
+
+                    <!----------------------------------- service section ends ---------------------------------------->
+
+                    <!----------------------------------- footer section Started -------------------------------------->
+                    <%- include ('components/footer.ejs') %>
+
+
+                        <!-- custom js file link  -->
+                        <script src="js/script.js"></script>
+
+                        <script>
+                            console.log(products)
+                        </script>
+
+    </body>
+
+    </html>

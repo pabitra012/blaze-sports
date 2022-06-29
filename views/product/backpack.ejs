@@ -1,0 +1,68 @@
+<%- include ('./components/head.ejs') %>
+
+<body>
+        <%- include ('./components/header.ejs') %>
+        <!-----------------------------------Navigation Bar Started--------------------------------------->
+        <%- include ('./components/navbar.ejs') %>
+            <!-----------------------------------------Body Started------------------------------------------->
+            <div class="A">
+
+                <div class="A-pic">
+                    <img src="<%= product.imageUrl %>" alt="backpack">
+                </div>
+                <div class="A-info">
+                    <h2><b><i><%= product.title %></i></b></h2>
+                    <h3>Special price</h3>
+                    <br>
+                    <div class="A-price"><b><i class="fa fa-inr"></i>Rs.<%= product.discountPrice %>/-</b><span>Rs.<%= product.price %>/-</span>
+                        <font color="green" font size="3.5"><%= product.discountPercentage %>% off</font>
+                    </div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                    <br>
+                    <div class="A-details">
+                        <ul>
+                            <li>
+                                <font size="3">Part Number: <%= product.partNumber %> 
+                            </li>
+                            <li>Ideal For: <%= product.idealFor %></li>
+                            <li>Cover Included: <%= product.coverIncluded %></li>
+                            <li>Color: <%= product.color %></li>
+                            <li>Sales Package: <%= product.salesPakage %></li>
+                            <li>Sport Type: <%= product.sportsType %></font>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <br>
+                    <div class="A-button">
+                        <a href="#"><input type="button" value="Add To Cart"
+                                style="background-color:orange;color:white;width:120px;height:30px;font-size:15px;"></a>
+                        <a href="#"><input type="button" value="Buy Now"
+                                style="background-color:green;color:white;width:120px;height:30px;font-size:15px;"></a>
+                    </div>
+                </div>
+            </div>
+
+            <!------------------------------------- service section starts ------------------------------------>
+
+            <%- include ('./components/service.ejs') %>
+
+            <!----------------------------------- service section ends ---------------------------------------->
+
+            <!----------------------------------- footer section Started -------------------------------------->
+            <%- include ('./components/footer.ejs') %>
+
+
+
+            <!-- custom js file link  -->
+            <script src="js/script.js"></script>
+
+</body>
+
+</html>
